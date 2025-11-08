@@ -1,0 +1,31 @@
+# --- Remove these paths entirely from history (add as needed) ---
+path:.env
+path:*.env
+path:.env.*
+path:.aws
+path:*.pem
+path:*.pfx
+path:*.key
+path:*.crt
+path:*.p12
+path:*.cer
+path:.vscode/settings.json
+path:node_modules
+path:*.sqlite
+path:*.db
+path:*.keystore
+
+# --- Replace sensitive strings everywhere in history ---
+# format: replace-text <from>\t<to>
+
+# Real domains -> placeholders
+replace-text: intellitechenterprises.com	example.com
+replace-text: stagealliance.com	        example.org
+
+# AWS artifacts (generic)
+replace-text: arn:aws:[^ \t\n"]+	        arn:aws:REDACTED
+replace-text: AKIA[0-9A-Z]{16}	        AWS_ACCESS_KEY_ID_REDACTED
+replace-text: [0-9]{12}	                AWS_ACCOUNT_ID_REDACTED
+
+# Emails (basic)
+replace-text: [A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}	user@example.com
